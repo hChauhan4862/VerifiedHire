@@ -1,0 +1,150 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Verified Hire</title>
+  <link href="{{ url_for('static', path='dist/css/tabler.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', path='dist/css/tabler-flags.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', path='dist/css/tabler-payments.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', path='dist/css/tabler-vendors.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', path='dist/css/demo.min.css') }}" rel="stylesheet">
+
+  <style>
+    @import url('https://rsms.me/inter/inter.css');
+
+    :root {
+      --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    }
+
+    body {
+      font-feature-settings: "cv03", "cv04", "cv11";
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .text-danger {
+      font-size: 11px;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+
+<body class=" d-flex flex-column">
+  <script src="{{ url_for('static', path='dist/js/demo-theme.min.js?1684106062') }}"></script>
+  <div class="page page-center">
+    <div class="container container-normal py-4">
+      <div class="row align-items-center g-4">
+
+        <div class="col-lg d-none d-lg-block">
+          <img src="/static/illustrations/undraw_secure_login_pdn4.svg" height="300" class="d-block mx-auto" alt="">
+        </div>
+
+        <div class="col-lg">
+          <div class="container-tight">
+            <div class="text-center mb-4">
+              <a href="." class="navbar-brand navbar-brand-autodark"><img src="/static/verifiedhirelogo.png" height="36"
+                  alt=""></a>
+            </div>
+            <div class="card card-md">
+              <div class="card-body">
+                <h2 class="h2 text-center mb-4">Employee Login</h2>
+                <center><span class="text-center" id="message"></span></center>
+                <form action="./" method="get" autocomplete="off" novalidate>
+                  <div class="mb-3">
+                    <label class="form-label">Email address</label>
+                    <input type="email" id="email" class="form-control" placeholder="your@email.com" autocomplete="off">
+                    <span id="emailerror" class="text-danger hide">* Enter valid email Id</span>
+                  </div>
+                  <div class="mb-2">
+                    <label class="form-label">
+                      Password
+
+                    </label>
+                    <div class="input-group input-group-flat">
+                      <input type="password" class="form-control" placeholder="Your password" autocomplete="off"
+                        id="password">
+
+                    </div>
+                    <span id="passworderror" class="text-danger text-center hide">* Password should be minimum 8
+                      charecters with atlease one Number, Special Charecters</span>
+
+                  </div>
+
+                  <div class="form-footer">
+                    <button type="button" id="employeeSigninButton" class="btn btn-primary w-100">Sign in</button>
+                  </div>
+                </form>
+              </div>
+
+
+            </div>
+            <div class="text-center text-muted mt-3">
+              Don't have account yet? <a href="{{ url_for('page', path='employee/signup') }}">Sign up</a> or Go <a
+                href="{{ url_for('page', path='home') }}">Home</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', path='dist/js/tabler.min.js') }}" defer></script>
+  <script src="{{ url_for('static', path='dist/js/demo.min.js') }}" defer></script>
+  <script src="{{ url_for('static', path='jsvalidations/jquery.js') }}"></script>
+
+  <script>
+    $("#email").keyup(function () {
+      if ($(this).val() == '' || !$(this).val().match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
+        $('#emailerror').show()
+      } else {
+        $('#emailerror').hide()
+      }
+    })
+
+    $("#password").keyup(function () {
+      if ($(this).val() == '') {
+        $('#passworderror').show()
+      } else {
+        $('#passworderror').hide()
+      }
+    })
+
+    $("#employeeSigninButton").click(function () {
+      if ($('#emailerror').is(":hidden") && $('#passworderror').is(":hidden")) {
+
+        $.ajax({
+          url: '/api/employees/signin',
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({
+            email: $('#email').val(),
+            password: $('#password').val(),
+          }),
+          success: function (output) {
+            if (!output.error) {
+              $('#message').html("Login Successfull")
+              $('#message').removeClass('text-danger')
+              $('#message').addClass('text-success')
+              setTimeout(function () {
+                window.location.href = '/employee/home'
+              }, 2000)
+            }
+          },
+          error: function (output) {
+            $('#message').html(output.responseJSON.detail)
+            $('#message').removeClass('text-success')
+            $('#message').addClass('text-danger')
+          }
+        });
+
+      }
+    })
+  </script>
+
+</body>
+
+</html>

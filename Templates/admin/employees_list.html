@@ -1,0 +1,140 @@
+{% include 'admin-header.html' %}
+<div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+          <div class="container-xl">
+            <div class="row g-2 align-items-center">
+              <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                  Admin
+                </div>
+                <h2 class="page-title">
+                  Admin > Employee
+                </h2>
+              </div>
+              <!-- Page title actions -->
+              <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+                  <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-deck row-cards">
+              <div class="col-12">
+                <div class="row row-cards">
+                  <div class="col-sm-6 col-lg-3">
+                    <div class="card card-sm">
+                      <div class="card-body">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span class="bg-primary text-white avatar">
+                              EM
+                            </span>
+                          </div>
+                          <div class="col">
+                            <div class="font-weight-medium">
+                              <span class="ecount"></span> Employees
+                            </div>
+                            <div class="text-muted">
+                               
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Registered Employees</h3>
+                  </div>
+                  <div class="card-body border-bottom py-3">
+                    <div class="d-flex">
+                      <div class="text-muted">
+                        Show
+                        <div class="mx-2 d-inline-block">
+                          <input type="text"  class="ecount form-control form-control-sm" value="0" size="3" aria-label="Invoices count">
+                        </div>
+                        entries
+                      </div>
+                      <!-- <div class="ms-auto text-muted">
+                        Search:
+                        <div class="ms-2 d-inline-block">
+                          <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
+                        </div>
+                      </div> -->
+                    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table card-table table-vcenter text-nowrap datatable">
+                      <thead>
+                        <tr>
+                          <th>UID</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Phone</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody id="data">
+                       
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="card-footer d-flex align-items-center">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+{% include 'admin-footer.html' %}
+    <script type="text/javascript">
+            $(document).ready(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/getallemployee',
+                    data: {
+                        
+                    },
+                    success: function(data) {
+                        $(".ecount").html(data.length)
+                        $(".ecount").val(data.length)
+                        var ap = ''
+                       
+                        for (var i = 0; i < data.length; i++) {
+                            ap += `<tr>
+                                    <td>` + data[i][4] + `</td>
+                                    <td>` + data[i][0] + `</td>
+                                    <td>` + data[i][1] + `</td>
+                                    <td>` + data[i][3] + `</td>
+                                    
+                                  </tr>`;
+                        }
+                        $("#data").html(ap)
+
+                    },
+                    error: function(xhr, status, error) {
+                        alertmessage("error", "event Not Created!")
+
+                    }
+                });
+            })
+    </script>

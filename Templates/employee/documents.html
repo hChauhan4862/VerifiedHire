@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Verified Hire</title>
+  <link href="{{ url_for('static', path='dist/css/tabler.min.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', path='dist/css/tabler-flags.min.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', path='dist/css/tabler-payments.min.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', path='dist/css/tabler-vendors.min.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', path='dist/css/demo.min.css') }}" rel="stylesheet" />
+  <style>
+    @import url('https://rsms.me/inter/inter.css');
+
+    :root {
+      --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    }
+
+    body {
+      font-feature-settings: "cv03", "cv04", "cv11";
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="/static/dist/js/demo-theme.min.js?1684106062"></script>
+  <div class="page">
+    <!-- Navbar -->
+    <header class="navbar navbar-expand-md d-print-none">
+      <div class="container-xl">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
+          aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+          <a href=".">
+            <img src="/static/verifiedhirelogo.png" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+          </a>
+        </h1>
+        <div class="navbar-nav flex-row order-md-last">
+          <div class="nav-item d-none d-md-flex me-3">
+            <div class="btn-list">
+
+            </div>
+          </div>
+          <div class="d-none d-md-flex">
+            <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode"
+              data-bs-toggle="tooltip" data-bs-placement="bottom">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+              </svg>
+            </a>
+            <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode"
+              data-bs-toggle="tooltip" data-bs-placement="bottom">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+              </svg>
+            </a>
+
+          </div>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+              aria-label="Open user menu">
+              <span class="avatar avatar-sm avatarPreview"
+                style="background-image: url(/static/avatars/000m.jpg)"></span>
+              <div class="d-none d-xl-block ps-2">
+                <div id="profname">Loading...</div>
+                <div class="mt-1 small text-muted">Employee</div>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+
+              <a href="/api/employees/logout" class="dropdown-item">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <header class="navbar-expand-md">
+      <div class="collapse navbar-collapse" id="navbar-menu">
+        <div class="navbar">
+          <div class="container-xl">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="home">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg"
+                      class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                      fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                    </svg></span>
+                  <span class="nav-link-title">My Profile</span>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="documents">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    📄
+                  </span>
+                  <span class="nav-link-title">Documents</span>
+                </a>
+              <li>
+
+
+            </ul>
+            <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+              <form action="./" method="get" autocomplete="off" novalidate>
+                <div class="input-icon">
+                  <span class="input-icon-addon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                      stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                      <path d="M21 21l-6 -6" />
+                    </svg>
+                  </span>
+                  <input type="text" value="" class="form-control" placeholder="Search…" aria-label="Search in website">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="page-wrapper">
+      <!-- Page header -->
+      <div class="page-header d-print-none">
+        <div class="container-xl">
+          <div class="row g-2 align-items-center">
+            <div class="col">
+              <!-- Page pre-title -->
+              <div class="page-pretitle">
+                Overview
+              </div>
+              <h2 class="page-title">
+                Employee > Home
+              </h2>
+            </div>
+            <!-- Page title actions -->
+            <div class="col-auto ms-auto d-print-none">
+              <div class="btn-list">
+                <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal"
+                  data-bs-target="#modal-report" aria-label="Create new report">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 5l0 14" />
+                    <path d="M5 12l14 0" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Page body -->
+      <div class="page-body">
+        <div class="container-xl">
+          <div class="row row-deck row-cards">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="tab-pane" id="tabs-docs-7" role="tabpanel">
+
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Your Documents</h3>
+                      </div>
+
+                      <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="mb-3">
+                                <label for="documentName" class="form-label">Type</label>
+                                <select class="form-select" id="documentType">
+                                  <option value="0">Select Document Type</option>
+                                  <option value="aadhaar">Aadhaar Card</option>
+                                  <option value="pan">PAN Card</option>
+                                  <option value="10th">UP Board High School</option>
+                                  <option value="12th">UP Board Intermediate</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6" id="district_div">
+                              <div class="mb-3">
+                                <label for="district" class="form-label">District.</label>
+                                <select class="form-select" id="district">
+                                  <option value="01" data-tokens="01">AGRA - 01</option>
+                                  <option value="06" data-tokens="06">ALIGARH - 06</option>
+                                  <option value="64" data-tokens="64">AMBEDKAR NAGAR - 64</option>
+                                  <option value="65" data-tokens="65">AMETHI - 65</option>
+                                  <option value="22" data-tokens="22">AMROHA - 22</option>
+                                  <option value="43" data-tokens="43">AURIYA - 43</option>
+                                  <option value="62" data-tokens="62">AYODHYA - 62</option>
+                                  <option value="80" data-tokens="80">AZAMGARH - 80</option>
+                                  <option value="13" data-tokens="13">BAGPAT - 13</option>
+                                  <option value="66" data-tokens="66">BAHRAICH - 66</option>
+                                  <option value="82" data-tokens="82">BALLIA - 82</option>
+                                  <option value="69" data-tokens="69">BALRAMPUR - 69</option>
+                                  <option value="51" data-tokens="51">BANDA - 51</option>
+                                  <option value="63" data-tokens="63">BARABANKI - 63</option>
+                                  <option value="26" data-tokens="26">BAREILLY - 26</option>
+                                  <option value="71" data-tokens="71">BASTI - 71</option>
+                                  <option value="88" data-tokens="88">BHADOHI - 88</option>
+                                  <option value="23" data-tokens="23">BIJNOR - 23</option>
+                                  <option value="27" data-tokens="27">BUDAUN - 27</option>
+                                  <option value="09" data-tokens="09">BULANDSHAHR - 09</option>
+                                  <option value="86" data-tokens="86">CHANDAULI - 86</option>
+                                  <option value="52" data-tokens="52">CHITRAKOOT - 52</option>
+                                  <option value="77" data-tokens="77">DEORIA - 77</option>
+                                  <option value="04" data-tokens="04">ETAH - 04</option>
+                                  <option value="41" data-tokens="41">ETAWAH - 41</option>
+                                  <option value="40" data-tokens="40">FARRUKHABAD - 40</option>
+                                  <option value="56" data-tokens="56">FATEHPUR - 56</option>
+                                  <option value="02" data-tokens="02">FIROZABAD - 02</option>
+                                  <option value="11" data-tokens="11">GAUTAM BUDH NAGAR - 11</option>
+                                  <option value="10" data-tokens="10">GHAZIABAD - 10</option>
+                                  <option value="84" data-tokens="84">GHAZIPUR - 84</option>
+                                  <option value="68" data-tokens="68">GONDA - 68</option>
+                                  <option value="75" data-tokens="75">GORAKHPUR - 75</option>
+                                  <option value="49" data-tokens="49">HAMIRPUR - 49</option>
+                                  <option value="14" data-tokens="14">HAPUR - 14</option>
+                                  <option value="33" data-tokens="33">HARDOI - 33</option>
+                                  <option value="07" data-tokens="07">HATHRAS - 07</option>
+                                  <option value="45" data-tokens="45">JALAUN - 45</option>
+                                  <option value="83" data-tokens="83">JAUNPUR - 83</option>
+                                  <option value="47" data-tokens="47">JHANSI - 47</option>
+                                  <option value="42" data-tokens="42">KANNAUJ - 42</option>
+                                  <option value="39" data-tokens="39">KANPUR DEHAT - 39</option>
+                                  <option value="38" data-tokens="38">KANPUR NAGAR - 38</option>
+                                  <option value="08" data-tokens="08">KASGANJ - 08</option>
+                                  <option value="57" data-tokens="57">KAUSHAMBI - 57</option>
+                                  <option value="78" data-tokens="78">KUSHINAGAR - 78</option>
+                                  <option value="31" data-tokens="31">LAKHIMPUR KHIRI - 31</option>
+                                  <option value="48" data-tokens="48">LALITPUR - 48</option>
+                                  <option value="34" data-tokens="34">LUCKNOW - 34</option>
+                                  <option value="76" data-tokens="76">MAHARAJGANJ - 76</option>
+                                  <option value="50" data-tokens="50">MAHOBA - 50</option>
+                                  <option value="03" data-tokens="03">MAINPURI - 03</option>
+                                  <option value="05" data-tokens="05">MATHURA - 05</option>
+                                  <option value="81" data-tokens="81">MAU - 81</option>
+                                  <option value="12" data-tokens="12">MEERUT - 12</option>
+                                  <option value="89" data-tokens="89">MIRZAPUR - 89</option>
+                                  <option value="21" data-tokens="21">MORADABAD - 21</option>
+                                  <option value="15" data-tokens="15">MUZAFFAR NAGAR - 15</option>
+                                  <option value="29" data-tokens="29">PILIBHIT - 29</option>
+                                  <option value="54" data-tokens="54">PRATAPGARH - 54</option>
+                                  <option value="55" data-tokens="55">PRAYAGRAJ - 55</option>
+                                  <option value="36" data-tokens="36">RAE BARAILI - 36</option>
+                                  <option value="24" data-tokens="24">RAMPUR - 24</option>
+                                  <option value="25" data-tokens="25">SAMBHAL - 25</option>
+                                  <option value="72" data-tokens="72">SANT KABIR NAGAR - 72</option>
+                                  <option value="16" data-tokens="16">SHAHARANPUR - 16</option>
+                                  <option value="28" data-tokens="28">SHAHJAHANPUR - 28</option>
+                                  <option value="17" data-tokens="17">SHAMLI - 17</option>
+                                  <option value="67" data-tokens="67">SHRAWASTI - 67</option>
+                                  <option value="73" data-tokens="73">SIDDHARTA NAGAR - 73</option>
+                                  <option value="32" data-tokens="32">SITAPUR - 32</option>
+                                  <option value="90" data-tokens="90">SONBHADRA - 90</option>
+                                  <option value="61" data-tokens="61">SULTANPUR - 61</option>
+                                  <option value="35" data-tokens="35">UNNAO - 35</option>
+                                  <option value="85" data-tokens="85">VARANASI - 85</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6" id="passing_year_div">
+                              <div class="mb-3">
+                                <label for="passing_year" class="form-label">Passing Year</label>
+                                <select class="form-select" id="passing_year">
+                                  <option value="2023">2023</option>
+                                  <option value="2022">2022</option>
+                                  <option value="2021">2021</option>
+                                  <option value="2020">2020</option>
+                                  <option value="2019">2019</option>
+                                  <option value="2018">2018</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2015">2015</option>
+                                  <option value="2014">2014</option>
+                                  <option value="2013">2013</option>
+                                  <option value="2012">2012</option>
+                                  <option value="2011">2011</option>
+                                  <option value="2010">2010</option>
+                                  <option value="2009">2009</option>
+                                  <option value="2008">2008</option>
+                                  <option value="2007">2007</option>
+                                  <option value="2006">2006</option>
+                                  <option value="2005">2005</option>
+                                  <option value="2004">2004</option>
+                                  <option value="2003">2003</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6" id="rollno_div">
+                              <div class="mb-3">
+                                <label for="rollno" class="form-label">Roll No.</label>
+                                <input type="text" class="form-control" id="rollno">
+                              </div>
+                            </div>
+
+                            <div class="col-md-6" id="panno_div">
+                              <div class="mb-3">
+                                <label for="panno" class="form-label">Pan Card No.</label>
+                                <input type="text" class="form-control" id="panno">
+                              </div>
+                            </div>
+
+                            <div class="col-md-6" id="upload_div">
+                              <div class="mb-3">
+                                <label for="upload_file" class="form-label">Upload File.</label>
+                                <input type="file" class="form-control" id="upload_file">
+                              </div>
+                            </div>
+
+
+                          </div>
+                          <button type="button" onclick="addDoc()" class="btn btn-primary">Add Document</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Bootstrap Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Document Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <pre id="doc_res"></pre>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <input type="hidden" id="fname">
+
+
+  <!-- Libs JS -->
+  <script src="{{ url_for('static', path='dist/libs/apexcharts/dist/apexcharts.min.js') }}" defer></script>
+  <script src="{{ url_for('static', path='dist/libs/jsvectormap/dist/js/jsvectormap.min.js') }}" defer></script>
+  <script src="{{ url_for('static', path='dist/libs/jsvectormap/dist/maps/world.js') }}" defer></script>
+  <script src="{{ url_for('static', path='dist/libs/jsvectormap/dist/maps/world-merc.js') }}" defer></script>
+  <script src="{{ url_for('static', path='jsvalidations/jquery.js') }}"></script>
+  <script src="{{ url_for('static', path='dist/js/tabler.min.js') }}" defer></script>
+  <script src="{{ url_for('static', path='dist/js/demo.min.js') }}" defer></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#district_div").hide();
+      $("#passing_year_div").hide();
+      $("#rollno_div").hide();
+      $("#panno_div").hide();
+      $("#upload_div").hide();
+
+
+      $("#documentType").on('change', function () {
+        $("#district_div").hide();
+        $("#passing_year_div").hide();
+        $("#rollno_div").hide();
+        $("#panno_div").hide();
+        $("#upload_div").hide();
+
+        if ($(this).val() == "10th" || $(this).val() == "12th") {
+          $("#district_div").show();
+          $("#passing_year_div").show();
+          $("#rollno_div").show();
+        } else if ($(this).val() == "pan") {
+          $("#panno_div").show();
+        } else if ($(this).val() != 0) {
+          $("#upload_div").show();
+        }
+
+
+      })
+    })
+
+
+    function addDoc() {
+      var documentType = $("#documentType").val();
+      var district = $("#district").val();
+      var passing_year = $("#passing_year").val();
+      var rollno = $("#rollno").val();
+      var panno = $("#panno").val();
+      var upload = $("#upload_file")[0].files[0];
+
+      if (documentType == 0) {
+        alert("Please select document type");
+        return;
+      }
+
+      if (documentType == "10th" || documentType == "12th") {
+        if (district == 0) {
+          alert("Please select district");
+          return;
+        }
+
+        if (passing_year == 0) {
+          alert("Please select passing year");
+          return;
+        }
+
+        if (rollno == '') {
+          alert("Please enter roll no.");
+          return;
+        }
+      }
+
+      if (documentType == "pan") {
+        if (panno == '') {
+          alert("Please enter pan no.");
+          return;
+        }
+      }
+
+      if (documentType != 0) {
+        if (upload == '') {
+          alert("Please upload document");
+          return;
+        }
+      }
+
+      var formData = new FormData();
+      formData.append('documentType', documentType);
+      formData.append('district', district);
+      formData.append('passing_year', passing_year);
+      formData.append('roll_number', rollno);
+      formData.append('panno', panno);
+      formData.append('upload', upload);
+
+      $.ajax({
+        url: '/api/employees/addDocument',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            $("#doc_res").text(JSON.stringify(data.data, null, 2));
+            $('#myModal').modal('show');
+        },
+        error: function (data) {
+          alert("Error ::::  " + data.responseJSON.detail);
+        }
+      })
+    }
+  </script>
+
+</body>
+
+</html>

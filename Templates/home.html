@@ -1,0 +1,292 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Verified Hire</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='homepage/css/style.css') }}">
+</head>
+<style type="text/css">
+  .templateux-navbar .templateux-logo {
+    margin-top: 0px !important;
+  }
+</style>
+<body>
+
+  <div class="js-animsition animsition" id="site-wrap" data-animsition-in-class="fade-in" data-animsition-out-class="fade-out">
+    <header class="templateux-navbar" role="banner">
+      <div class="container"  data-aos="fade-down">
+        <div class="row">
+           <div class="col-3 templateux-logo" style="display: flex;
+    background: #0000007d;
+    align-content: center;
+    align-items: center;">
+            <a href="index.html" class="animsition-link"><b>Verified Hire</b></a>
+          </div>
+          <nav class="col-9 site-nav" style="background: #0000007d;">
+            <button class="d-block d-md-none hamburger hamburger--spin templateux-toggle templateux-toggle-light ml-auto templateux-toggle-menu" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button> 
+            <ul class="sf-menu templateux-menu d-none d-md-block">
+              <li class="active"><a href="{{ url_for('page', path='home') }}" class="animsition-link">Home</a></li>
+              <li><a href="{{ url_for('page', path='about') }}" class="animsition-link">About</a></li>
+              <li><a href="{{ url_for('page', path='services') }}" class="animsition-link">Services</a></li>
+              <li><a href="{{ url_for('page', path='contact') }}" class="animsition-link">Contact</a></li>
+              <li><a href="{{ url_for('page', path='admin/signin') }}" class="animsition-link">Admin</a></li>
+              <li><a href="{{ url_for('page', path='employer/signin') }}" class="animsition-link">Recruiter</a></li>
+              <li><a href="{{ url_for('page', path='employee/signin') }}" class="animsition-link">Employee</a></li>
+          </ul>    
+          </nav> 
+        </div> 
+      </div> 
+    </header> 
+    
+    <div class="templateux-cover" style="background-image: url({{ url_for('static', path='homepage/images/hero_1.jpg') }});">
+      <div class="container">
+        <div class="row align-items-lg-center">
+          <div class="col-lg-6 order-lg-1">
+            <h1 class="heading mb-3 text-white" data-aos="fade-up">We Are Your Partners in <strong>Human Resource</strong></h1>
+            <p class="lead mb-5 text-white" data-aos="fade-up"  data-aos-delay="100">A strong transparent hiring-background verification process powered by blockchain technology</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="templateux-section pt-0 pb-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 templateux-overlap">
+            <div class="row">
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="media block-icon-1 d-block text-left">
+                  <div class="icon mb-3">
+                    <img src="{{ url_for('static', path='homepage/images/flaticon/svg/001-consultation.svg') }}" alt="Image" class="img-fluid">
+                  </div>
+                  <div class="media-body">
+                    <h3 class="h5 mb-4">Immutable Verification Trail</h3>
+                    <p>Every background check leaves an unalterable mark, ensuring transparency and trust</p>
+                  </div>
+                </div>              </div>
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="700">
+                <div class="media block-icon-1 d-block text-left">
+                  <div class="icon mb-3">
+                    <img src="{{ url_for('static', path='homepage/images/flaticon/svg/002-discussion.svg') }}" alt="Image" class="img-fluid">
+                  </div>
+                  <div class="media-body">
+                    <h3 class="h5 mb-4">Decentralized Credential Storage</h3>
+                    <p>Your verified credentials reside securely across a distributed network, safeguarding privacy</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="800">
+                <div class="media block-icon-1 d-block text-left">
+                  <div class="icon mb-3">
+                    <img src="{{ url_for('static', path='homepage/images/flaticon/svg/003-turnover.svg') }}" alt="Image" class="img-fluid">
+                  </div>
+                  <div class="media-body">
+                    <h3 class="h5 mb-4">Smart Contract Automation</h3>
+                    <p>Streamlined verification processes powered by smart contracts ensure efficiency and accuracy</p>
+                  </div>
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- .templateux-section -->
+
+    <div class="templateux-section">
+
+      <div class="container"  data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-7">
+            <h2 class="mb-5">Our Agency</h2>
+            <div class="owl-carousel wide-slider">
+              <div class="item">
+                <img src="{{ url_for('static', path='homepage/images/slider-1.jpg') }}" alt="Free template by TemplateUX.com" class="img-fluid">
+              </div>
+              <div class="item">
+                <img src="{{ url_for('static', path='homepage/images/slider-2.jpg') }}" alt="Free template by TemplateUX.com" class="img-fluid">
+              </div>
+              <div class="item">
+                <img src="{{ url_for('static', path='homepage/images/slider-3.jpg') }}" alt="Free template by TemplateUX.com" class="img-fluid">
+              </div>
+            </div> <!-- .owl-carousel -->
+          </div>
+          <div class="col-lg-5 pl-lg-5">
+            <h2 class="mb-5">Why Us?</h2>
+            <div class="accordion" id="accordionExample">
+
+
+              <div class="accordion-item">
+                <h2 class="mb-0 rounded mb-2">
+                  <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                 Mission</a>
+                </h2>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Our mission is to establish a new standard of trust in background verification processes through the transformative power of blockchain technology. By harnessing the immutable nature of blockchain, we aim to create a system where background checks leave an indelible mark, ensuring transparency and reliability for all parties involved. Our commitment lies in enabling secure and transparent authentication of credentials, thereby fostering trust in various spheres of life, from employment to finance and beyond. We believe that by empowering individuals and organizations with blockchain-driven verification, we can pave the way for a more trustworthy and equitable society.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h2 class="mb-0 rounded mb-2">
+                  <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Vision
+                  </a>
+                </h2>
+                
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Our vision is to redefine the landscape of verification by leveraging blockchain technology to its fullest potential. We envision a future where trust is not only fundamental but also inherent and accessible to everyone, regardless of geographical or socioeconomic barriers. By pioneering innovative solutions that utilize blockchain's decentralized and immutable nature, we aspire to create a world where trust is no longer a scarce commodity but rather a universal currency. Through our efforts, we aim to catalyze a paradigm shift in how verification processes are conducted, setting a new standard of integrity and reliability across industries and borders.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h2 class="mb-0 rounded mb-2">
+                  <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Services
+                  </a>
+                </h2>
+                
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>At our core, we offer a suite of cutting-edge services that revolutionize traditional background verification processes. Our blockchain-backed background checks provide individuals and organizations with immutable verification records, ensuring the authenticity and integrity of credentials. Additionally, our decentralized credential management system enables secure storage and management of verified information on a distributed ledger, safeguarding privacy and reducing the risk of data breaches. Furthermore, our smart contract verification services automate verification processes, increasing efficiency and reliability while minimizing human error. Together, these services form the foundation of a new era of trust and transparency in background verification, empowering individuals and organizations alike.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- .templateux-section -->
+
+    <div class="templateux-section bg-light py-5" id="templateux-counter-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md">
+            <div class="templateux-counter text-center">
+              <span class="templateux-number" data-number="450">0</span>
+              <span class="templateux-label">Number of Recuitors</span>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="templateux-counter text-center">
+              <span class="templateux-number" data-number="1999">0</span>
+              <span class="templateux-label">Number of Users</span>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="templateux-counter text-center">
+              <span class="templateux-number" data-number="4">0</span>
+              <span class="templateux-label">Years Of Verifications</span>
+            </div>
+          </div>    
+        </div>
+      </div>
+      
+    </div>
+  </div> <!-- .templateux-section -->
+
+
+  <div class="templateux-section bg-light">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center mb-5">
+          <h2>Our Services</h2>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up">
+          <div class="media block-icon-1 d-block text-center">
+            <div class="icon mb-3">
+              <img src="{{ url_for('static', path='homepage/images/flaticon/svg/004-gear.svg') }}" alt="Image" class="img-fluid">
+            </div>
+            <div class="media-body">
+              <h3 class="h5 mb-4">Immutable Records</h3>
+              <p>Blockchain technology ensures that once data is recorded on the blockchain, it cannot be altered or tampered with. This immutability provides a reliable and secure way to store background verification data, such as educational qualifications, employment history, and criminal records.</p>
+            </div>
+          </div> <!-- .block-icon-1 -->
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="media block-icon-1 d-block text-center">
+            <div class="icon mb-3">
+              <img src="{{ url_for('static', path='homepage/images/flaticon/svg/005-conflict.svg') }}" alt="Image" class="img-fluid">
+            </div>
+            <div class="media-body">
+              <h3 class="h5 mb-4">Global Access</h3>
+              <p>Blockchain technology enables seamless verification of credentials across borders and jurisdictions. Individuals can securely share their verified credentials with employers and institutions worldwide, eliminating the need for costly and time-consuming re-verification processes.</p>
+            </div>
+          </div> <!-- .block-icon-1 -->
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="media block-icon-1 d-block text-center">
+            <div class="icon mb-3">
+              <img src="{{ url_for('static', path='homepage/images/flaticon/svg/006-meeting.svg') }}" alt="Image" class="img-fluid">
+            </div>
+            <div class="media-body">
+              <h3 class="h5 mb-4">Decentralization</h3>
+              <p>Blockchain operates on a decentralized network of nodes, eliminating the need for a central authority to control the verification process. This decentralization reduces the risk of single points of failure and enhances trust in the verification process.</p>
+            </div>
+          </div> <!-- .block-icon-1 -->
+        </div>
+
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="media block-icon-1 d-block text-center">
+            <div class="icon mb-3">
+              <img src="{{ url_for('static', path='homepage/images/flaticon/svg/007-brainstorming.svg') }}" alt="Image" class="img-fluid">
+            </div>
+            <div class="media-body">
+              <h3 class="h5 mb-4">Transparency</h3>
+              <p>All transactions on the blockchain are transparent and can be audited in real-time by authorized parties. This transparency ensures that background verification processes are conducted fairly and without bias, increasing trust between employers, employees, and verification agencies.</p>
+            </div>
+          </div> <!-- .block-icon-1 -->
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="media block-icon-1 d-block text-center">
+            <div class="icon mb-3">
+              <img src="{{ url_for('static', path='homepage/images/flaticon/svg/001-consultation.svg') }}" alt="Image" class="img-fluid">
+            </div>
+            <div class="media-body">
+              <h3 class="h5 mb-4">Data Privacy</h3>
+              <p>Blockchain-based verification services can enhance data privacy by allowing individuals to control access to their personal information using cryptographic keys. Employers and verification agencies can verify credentials without accessing sensitive personal data, reducing the risk of data breaches and identity theft.</p>
+            </div>
+          </div> <!-- .block-icon-1 -->
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="media block-icon-1 d-block text-center">
+            <div class="icon mb-3">
+              <img src="{{ url_for('static', path='homepage/images/flaticon/svg/009-brainstorming-2.svg') }}" alt="Image" class="img-fluid">
+            </div>
+            <div class="media-body">
+              <h3 class="h5 mb-4">Cost Reduction</h3>
+              <p>Traditional background verification processes are often time-consuming, manual, and costly. Blockchain-based verification services streamline the process by providing a single, secure platform for verifying and sharing credentials. This reduces administrative overheads and processing times, leading to cost savings for both employers and individuals.</p>
+            </div>
+          </div> <!-- .block-icon-1 -->
+        </div>
+
+      </div>
+      
+    </div>
+  </div> <!-- .templateux-section -->
+
+
+
+</div> <!-- .templateux-section -->
+
+
+
+</div> 
+<script src="{{ url_for('static', path='homepage/js/scripts-all.js') }}"></script>
+<script src="{{ url_for('static', path='homepage/js/main.js') }}"></script>
+<script type="text/javascript">
+  
+</script>
+
+</body>
+</html>

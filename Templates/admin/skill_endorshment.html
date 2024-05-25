@@ -1,0 +1,238 @@
+{% include 'admin-header.html' %}
+      <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+          <div class="container-xl">
+            <div class="row g-2 align-items-center">
+              <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                  Admin
+                </div>
+                <h2 class="page-title">
+                  Admin > Skill Endorsement
+                </h2>
+              </div>
+              <!-- Page title actions -->
+              <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+                  <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-deck row-cards">
+            <div class="col-sm-12">
+                  <div class="card">
+                  <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs nav-fill" data-bs-toggle="tabs" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <a href="#tabs-home-7" class="nav-link active" data-bs-toggle="tab" aria-selected="true" role="tab"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l-2 0l9 -9l9 9l-2 0"></path><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path></svg>
+                          Endorsement Requests</a>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <a href="#tabs-profile-7" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1"><!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg>
+                          Endorsement Results</a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <div class="tab-content">
+                      <div class="tab-pane active show" id="tabs-home-7" role="tabpanel">
+                        <h4>Endorsement Requests</h4>
+
+                        <div class="card">
+                            <div class="table-responsive">
+                              <table class="table table-vcenter table-mobile-md card-table">
+                                <thead>
+                                  <tr>
+                                    <th>UID</th>
+                                    <th>Email</th>
+                                    <th>Requested Endorse</th>
+                                    <th>Description</th>
+                                    <th>Requested Date</th>
+                                    <th class="text-center">Action</th>
+                                    <th class="w-1"></th>
+                                  </tr>
+                                </thead>
+                                <tbody id="requestdata">
+                                  
+
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+
+                      </div>
+                      <div class="tab-pane" id="tabs-profile-7" role="tabpanel">
+                        <h4>Endorsement Results</h4>
+
+                        <div class="card">
+                            <div class="table-responsive">
+                              <table class="table table-vcenter table-mobile-md card-table">
+                                <thead>
+                                  <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Endorse Skill</th>
+                                    <th>Score</th>
+                                    <th>Status</th>
+                                    <th>Result Date</th>
+                                    <th class="text-center">Action</th>
+                                    <th class="w-1"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td data-label="Name">
+                                      Vaibav
+                                    </td>
+                                    <td data-label="Name">
+                                      vavbav@gmail.com
+                                    </td>
+                                    <td data-label="Name">
+                                      C++
+                                    </td>
+                                    <td data-label="Name">
+                                      20
+                                    </td>
+                                    <td data-label="Name">
+                                      <span class="badge bg-green text-green-fg">Pass</span>
+                                    </td>
+                                    <td  data-label="Name">
+                                      11/04/2024
+                                    </td>
+                                    <td >
+                                      <div class="flex-nowrap text-center">
+                                        <a href="#" class="btn btn-primary">
+                                          Update
+                                        </a>
+                                        <a href="#" class="btn btn-danger">
+                                          Reject
+                                        </a>
+                                        <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal-report">
+                                          Enquiry
+                                        </a>
+                                      </div>
+                                    </td>
+                                  </tr>
+
+                                  
+
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+             </div>
+      
+          </div>
+        </div>
+      </div>
+
+{% include 'admin-footer.html' %}
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      $.ajax({
+          url:"/getendoresedata", 
+          type: "post", 
+          dataType: 'json',
+          data: {},
+          beforeSend: function(){
+                
+          },
+          success: function(output){
+            var endor = ''
+            for (var i = 0; i <= output.length - 1; i++) {
+              if (output[i][5] != 'reject'){
+                  if (output[i][5] != 'accept'){
+                    endor += `<tr><td>` + output[i][0] + `</td>
+                  <td>` + output[i][1] + `</td>
+                  <td>` + output[i][2] + `</td>
+                  <td>` + output[i][3] + `</td>
+                  <td>` + output[i][7] + `</td>
+                  <td>
+                      <div class="flex-nowrap text-center">
+                          <a href="#" class="btn btn-primary" onclick="acceptmail('` + encodeURIComponent(JSON.stringify(output[i])) + `')">
+                              Accept and Mail
+                          </a>
+                          <a href="#" class="btn btn-danger" onclick="reject('` + encodeURIComponent(JSON.stringify(output[i])) + `')">
+                              Reject
+                          </a>
+                      </div>
+                  </td>`;
+              }
+            }
+              }
+              $("#requestdata").html(endor)
+
+          }
+      })
+  });
+
+  function acceptmail(input){
+      var inputData = JSON.parse(decodeURIComponent(input));
+        var endid = inputData[0]
+        var email = inputData[1]
+        var subject = inputData[2]
+        var description = inputData[3]
+        var score = inputData[4]
+        var status = "accept"
+        var hasupdated = inputData[6]
+        var on = inputData[7]
+      
+      $.ajax({
+          url:"/sendendoresexam", 
+          type: "post", 
+          dataType: 'json',
+          data: {"endid":endid, "email":email, "subject":subject, "description":description,"score":score,"status":status,"hasupdated":hasupdated,"on":on},
+          success: function(output){
+            alert("Request sent successfully")
+            location.href = "endorestmentlist"
+          }
+        });
+      
+  }
+  function reject(input){
+        var inputData = JSON.parse(decodeURIComponent(input));
+
+        var endid = inputData[0]
+        var email = inputData[1]
+        var subject = inputData[2]
+        var description = inputData[3]
+        var score = inputData[4]
+        var status = "reject"
+        var hasupdated = inputData[6]
+        var on = inputData[7]
+
+        $.ajax({
+          url:"/rejectendorest", 
+          type: "post", 
+          dataType: 'json',
+          data: {"endid":endid, "email":email, "subject":subject, "description":description,"score":score,"status":status,"hasupdated":hasupdated,"on":on},
+          success: function(output){
+            alert("Request rejected!")
+            location.href = "endorestmentlist"
+          }
+        });
+
+  }
+
+</script>

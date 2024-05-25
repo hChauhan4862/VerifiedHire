@@ -1,0 +1,237 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Verified Hire</title>
+  <link href="{{ url_for('static', path='dist/css/tabler.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', path='dist/css/tabler-flags.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', path='dist/css/tabler-payments.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', path='dist/css/tabler-vendors.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', path='dist/css/demo.min.css') }}" rel="stylesheet">
+
+  <style>
+    @import url('https://rsms.me/inter/inter.css');
+
+    :root {
+      --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    }
+
+    body {
+      font-feature-settings: "cv03", "cv04", "cv11";
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .text-danger {
+      font-size: 11px;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+
+<body class=" d-flex flex-column">
+
+  <script src="{{ url_for('static', path='dist/js/demo-theme.min.js?1684106062') }}"></script>
+
+  <div class="page page-center">
+    <div class="container container-tight py-4">
+      <div class="text-center mb-4">
+        <a href="." class="navbar-brand navbar-brand-autodark"><img src="/static/verifiedhirelogo.png" height="36"
+            alt=""></a>
+
+      </div>
+      <form class="card card-md" action="./" method="get" autocomplete="off" novalidate>
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Employee Signup</h2>
+          <center><span class="text-center" id="message"></span></center>
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Enter name" id="name">
+            <span id="nameerror" class="text-danger hide">* Name should not be empty and cannot contain numbers</span>
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input type="email" class="form-control" placeholder="Enter email" id="email">
+            <span id="emailerror" class="text-danger hide">* Enter valid email Id</span>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <div class="input-group input-group-flat">
+              <input type="password" class="form-control" placeholder="Password" id="password">
+
+            </div>
+            <span id="passworderror" class="text-danger hide">* Enter valid password. Password should contain alphabets,
+              special charecters and numbers</span>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone address</label>
+            <input type="number" class="form-control" placeholder="Phone" id="phone">
+            <span id="phoneerror" class="text-danger hide">* Phone number should be equal to 10 digits</span>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Aadhaar Number</label>
+            <input type="text" class="form-control" placeholder="Aadhaar Number" id="aadhaar">
+            <span id="aadhaarerror" class="text-danger hide">* Please Enter Valid aadhaar Number</span>
+          </div>
+
+
+          <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select class="form-control" id="gender">
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+          </div>
+
+          <div class="mb-3 hide" id="otpfield">
+            <label class="form-label">OTP</label>
+            <input type="text" class="form-control" placeholder="OTP" id="otp">
+            <span id="otperror" class="text-warning">* Check your Phone for the OTP</span>
+          </div>
+
+          <div class="form-footer">
+            <button type="button" id="employeesignupbutton" class="btn btn-primary w-100">Create new account</button>
+          </div>
+        </div>
+      </form>
+      <div class="text-center text-muted mt-3">
+        Already have account? <a href="{{ url_for('page', path='employee/signin') }}" tabindex="-1">Sign in</a> or Go <a
+          href="{{ url_for('page', path='home') }}">Home</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', path='dist/js/tabler.min.js') }}" defer></script>
+  <script src="{{ url_for('static', path='dist/js/demo.min.js') }}" defer></script>
+  <script src="{{ url_for('static', path='jsvalidations/jquery.js') }}"></script>
+  <!-- <script src="{{ url_for('static', path='jsvalidations/signupvalidations.js') }}"></script> -->
+
+
+  <script>
+    var sendotp = ''
+    $("#name").keyup(function () {
+      if ($(this).val() == '' || !$(this).val().match(/^[^\d]+$/)) {
+        $('#nameerror').show()
+      } else {
+        $('#nameerror').hide()
+      }
+    })
+
+    $("#email").keyup(function () {
+      if ($(this).val() == '' || !$(this).val().match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
+        $('#emailerror').show()
+      } else {
+        $('#emailerror').hide()
+      }
+    })
+
+    $("#password").keyup(function () {
+      if ($(this).val() == '' || !$(this).val().match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)) {
+        $('#passworderror').show()
+      } else {
+        $('#passworderror').hide()
+      }
+    })
+
+    $("#phone").keyup(function () {
+      if ($(this).val() == '' || !$(this).val().match(/^[0-9]{10}$/)) {
+        $('#phoneerror').show()
+      } else {
+        $('#phoneerror').hide()
+      }
+    })
+
+    $("#aadhaar").keyup(function () {
+      if ($(this).val() == '' || !$(this).val().match(/^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$/)) {
+        $('#aadhaarerror').show()
+      } else {
+        $('#aadhaarerror').hide()
+      }
+    })
+
+
+    $("#employeesignupbutton").click(function () {
+      name = $('#name').val()
+      email = $('#email').val()
+      password = $('#password').val()
+      phone = $('#phone').val()
+      aadhaar = $('#aadhaar').val()
+      gender = $('#gender').val()
+
+      if (name == "" || email == "" || password == "" || phone == "" || aadhaar == "" || gender == "") {
+        $('#message').html("Please fill all the fields")
+        $('#message').removeClass('text-success')
+        $('#message').addClass('text-danger')
+        return
+      }
+
+
+      var userData = {
+        name: name,
+        email: email,
+        password: password,
+        phone: phone,
+        aadhaar: aadhaar,
+        gender: gender
+      };
+
+
+      if ($('#aadhaarerror').is(":hidden") && $('#phoneerror').is(":hidden") && $('#passworderror').is(":hidden") && $('#emailerror').is(":hidden") && $('#nameerror').is(":hidden")) {
+        if ($('#otp').is(":hidden")) {
+          $.ajax({
+            url: '/api/employees/sendotp',  // Update this to your API endpoint
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(userData),
+            success: function (response) {
+              $("#otpfield").show()
+              sendotp = response.data
+            }
+          })
+
+        } else if ($('#otp').val() == sendotp) {
+          $.ajax({
+            url: '/api/employees/signup',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+              name: $('#name').val(),
+              email: $('#email').val(),
+              password: $('#password').val(),
+              phone: $('#phone').val(),
+              aadhaar: $('#aadhaar').val(),
+              gender: $('#gender').val()
+            }),
+            success: function (output) {
+              if (!output.error) {
+                $('#message').html(output.detail)
+                $('#message').removeClass('text-danger')
+                $('#message').addClass('text-success')
+                setTimeout(function () {
+                  window.location.href = '/employee/signin'
+                }, 2000)
+              }
+            },
+            error: function (output) {
+              $('#message').html(output.responseJSON.detail)
+              $('#message').removeClass('text-success')
+              $('#message').addClass('text-danger')
+            }
+          });
+        } else {
+          $('#otperror').show()
+        }
+
+      }
+    })
+  </script>
+
+</body>
+
+</html>

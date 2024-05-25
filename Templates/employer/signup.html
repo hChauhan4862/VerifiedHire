@@ -1,0 +1,101 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Verified Hire</title>
+    <link href="{{ url_for('static', path='dist/css/tabler.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='dist/css/tabler-flags.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='dist/css/tabler-payments.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='dist/css/tabler-vendors.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='dist/css/demo.min.css') }}" rel="stylesheet">
+
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      :root {
+        --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+        font-feature-settings: "cv03", "cv04", "cv11";
+      }
+      .hide{
+        display: none;
+      }
+      .text-danger{
+        font-size: 11px;
+        margin-top: 6px;
+      }
+    </style>
+  </head>
+  <body  class=" d-flex flex-column">
+   
+    <script src="{{ url_for('static', path='dist/js/demo-theme.min.js?1684106062') }}"></script>
+
+    <div class="page page-center">
+      <div class="container container-tight py-4">
+        <div class="text-center mb-4">
+          <a href="." class="navbar-brand navbar-brand-autodark"><img src="/static/verifiedhirelogo.png" height="36" alt=""></a>
+
+        </div>
+        <form class="card card-md" action="./" method="get" autocomplete="off" novalidate>
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">Recuitor Signup</h2>
+             <center><span class="text-center" id="message"></span></center>
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" placeholder="Enter name" id="name">
+              <span id="nameerror" class="text-danger hide">* Name should not be empty and cannot contain numbers</span>
+
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email address</label>
+              <input type="email" class="form-control" placeholder="Enter email" id="email">
+              <span id="emailerror" class="text-danger hide">* Enter valid email Id</span>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <div class="input-group input-group-flat">
+                <input type="password" class="form-control"  placeholder="Password"   id="password">
+                <span class="input-group-text">
+                  <a href="#" class="link-secondary" title="Show password" data-bs-toggle="tooltip">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+                  </a>
+                </span>
+              </div>
+              <span id="passworderror" class="text-danger hide">* Enter valid password. Password should contain alphabets, special charecters and numbers</span>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Phone address</label>
+              <input type="number" class="form-control" placeholder="Phone" id="phone">
+              <span id="phoneerror" class="text-danger hide">* Phone number cannot be les than 10 and should not exceed 12</span>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Company Name</label>
+              <input type="text" class="form-control" placeholder="Cognizant" id="company">
+            </div>
+
+             <div class="mb-3 hide" id="otpfield">
+              <label class="form-label">OTP</label>
+              <input type="text" class="form-control" placeholder="OTP" id="otp">
+              <span id="otperror" class="text-warning">* Check your mail for the OTP</span>
+            </div>
+            
+            <div class="form-footer">
+              <button type="button" id="recuitorsignupbutton" class="btn btn-primary w-100">Create new account</button>
+            </div>
+          </div>
+        </form>
+        <div class="text-center text-muted mt-3">
+          Already have account? <a href="{{ url_for('page', path='employer/signin') }}" tabindex="-1">Sign in</a> or Go <a href="{{ url_for('page', path='home') }}">Home</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', path='dist/js/tabler.min.js') }}" defer></script>
+    <script src="{{ url_for('static', path='dist/js/demo.min.js') }}" defer></script>
+    <script src="{{ url_for('static', path='jsvalidations/jquery.js') }}"></script>
+    <script src="{{ url_for('static', path='jsvalidations/signupvalidations.js') }}"></script>
+
+  </body>
+</html>
