@@ -93,6 +93,7 @@ def UPBOARD_SS_MARKSHEET_API(year: int, district: str, roll: str):
     
     # Parse the data
     RESULT = {}
+    RESULT["DOCUMENT_TYPE"] = "SS_MARKSHEET"
     RESULT["CLASS"] = "High School"
     RESULT["BOARD_UNIVERSITY"] = "Uttar Pradesh Madhyamik Shiksha Parishad"
     RESULT["RESULT_TYPE"] = "YEAR_WISE"

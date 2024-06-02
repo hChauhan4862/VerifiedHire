@@ -3,27 +3,27 @@ import json as JSON
 
 def UPBOARD_HS_MARKSHEET_API(year: int, district: str, roll: str):
     MetaData = {
-        2023 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_2023.aspx", "roll_length": 10, "district_required": True},
-        2022 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_2022.aspx", "roll_length": 10, "district_required": True},
-        2021 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_2021.aspx", "roll_length": 9, "district_required": True},
-        2020 : {"url": "https://results.upmsp.edu.in/ResultHighSchool20152020.aspx", "roll_length": 7, "district_required": False},
-        2019 : {"url": "https://results.upmsp.edu.in/ResultHighSchool20152020.aspx", "roll_length": 7, "district_required": False},
-        2018 : {"url": "https://results.upmsp.edu.in/ResultHighSchool20152020.aspx", "roll_length": 7, "district_required": False},
-        2017 : {"url": "https://results.upmsp.edu.in/ResultHighSchool20152020.aspx", "roll_length": 7, "district_required": False},
-        2016 : {"url": "https://results.upmsp.edu.in/ResultHighSchool20152020.aspx", "roll_length": 7, "district_required": False},
-        2015 : {"url": "https://results.upmsp.edu.in/ResultHighSchool20152020.aspx", "roll_length": 7, "district_required": False},
-        2014 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_NIC20122015.aspx", "roll_length": 7, "district_required": True},
-        2013 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_NIC20122015.aspx", "roll_length": 7, "district_required": True},
-        2012 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_NIC20122015.aspx", "roll_length": 7, "district_required": True},
-        2011 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_NIC2011.aspx", "roll_length": 7, "district_required": False},
-        2010 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_NIC2010.aspx", "roll_length": 7, "district_required": True},
-        2009 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_NIC20072009.aspx", "roll_length": 7, "district_required": False},
-        2008 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_NIC20072009.aspx", "roll_length": 7, "district_required": False},
-        2007 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_NIC20072009.aspx", "roll_length": 7, "district_required": False},
-        2006 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_NIC20032006.aspx", "roll_length": 7, "district_required": False},
-        2005 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_NIC20032006.aspx", "roll_length": 7, "district_required": False},
-        2004 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_NIC20032006.aspx", "roll_length": 7, "district_required": False},
-        2003 : {"url": "https://results.upmsp.edu.in/ResultHighSchool_NIC20032006.aspx", "roll_length": 7, "district_required": False}
+        2023 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_2023.aspx", "roll_length": 10, "district_required": True},
+        2022 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_2022.aspx", "roll_length": 10, "district_required": True},
+        2021 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_2021.aspx", "roll_length": 9, "district_required": True},
+        2020 : {"url": "http://results.upmsp.edu.in/ResultHighSchool20152020.aspx", "roll_length": 7, "district_required": False},
+        2019 : {"url": "http://results.upmsp.edu.in/ResultHighSchool20152020.aspx", "roll_length": 7, "district_required": False},
+        2018 : {"url": "http://results.upmsp.edu.in/ResultHighSchool20152020.aspx", "roll_length": 7, "district_required": False},
+        2017 : {"url": "http://results.upmsp.edu.in/ResultHighSchool20152020.aspx", "roll_length": 7, "district_required": False},
+        2016 : {"url": "http://results.upmsp.edu.in/ResultHighSchool20152020.aspx", "roll_length": 7, "district_required": False},
+        2015 : {"url": "http://results.upmsp.edu.in/ResultHighSchool20152020.aspx", "roll_length": 7, "district_required": False},
+        2014 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_NIC20122015.aspx", "roll_length": 7, "district_required": True},
+        2013 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_NIC20122015.aspx", "roll_length": 7, "district_required": True},
+        2012 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_NIC20122015.aspx", "roll_length": 7, "district_required": True},
+        2011 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_NIC2011.aspx", "roll_length": 7, "district_required": False},
+        2010 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_NIC2010.aspx", "roll_length": 7, "district_required": True},
+        2009 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_NIC20072009.aspx", "roll_length": 7, "district_required": False},
+        2008 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_NIC20072009.aspx", "roll_length": 7, "district_required": False},
+        2007 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_NIC20072009.aspx", "roll_length": 7, "district_required": False},
+        2006 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_NIC20032006.aspx", "roll_length": 7, "district_required": False},
+        2005 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_NIC20032006.aspx", "roll_length": 7, "district_required": False},
+        2004 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_NIC20032006.aspx", "roll_length": 7, "district_required": False},
+        2003 : {"url": "http://results.upmsp.edu.in/ResultHighSchool_NIC20032006.aspx", "roll_length": 7, "district_required": False}
     }
 
     # Validate the input
@@ -49,7 +49,7 @@ def UPBOARD_HS_MARKSHEET_API(year: int, district: str, roll: str):
     res = r.text
     
     # Get the captcha
-    r = s.get("https://results.upmsp.edu.in/CaptchaImage.aspx?query=0.603525920530112&Code=AAAAAA")
+    r = s.get("http://results.upmsp.edu.in/CaptchaImage.aspx?query=0.603525920530112&Code=AAAAAA", verify=False)
     if r.status_code != 200:
         return {"error": "Failed to connect API"}
     
@@ -83,16 +83,17 @@ def UPBOARD_HS_MARKSHEET_API(year: int, district: str, roll: str):
         "Connection": "keep-alive",
         "Content-Type": "application/x-www-form-urlencoded",
         "Host": "results.upmsp.edu.in",
-        "Origin": "https://results.upmsp.edu.in"
+        "Origin": "http://results.upmsp.edu.in"
     }
     # print("Sending request:","\n", JSON.dumps(data, indent=4), "\n", JSON.dumps(headers, indent=4))
-    r = s.request(method="POST", url=url, data=data, headers=headers)
+    r = s.request(method="POST", url=url, data=data, headers=headers, verify=False)
     if r.status_code != 200:
         return {"error": "Failed to connect API"}
     t = r.text
     
     # Parse the data
     RESULT = {}
+    RESULT["DOCUMENT_TYPE"] = "HS_MARKSHEET"
     RESULT["CLASS"] = "High School"
     RESULT["BOARD_UNIVERSITY"] = "Uttar Pradesh Madhyamik Shiksha Parishad"
     RESULT["RESULT_TYPE"] = "YEAR_WISE"

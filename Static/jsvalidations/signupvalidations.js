@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-	let emailerror = passworderror = namerror = phonerror = 0, aadhaarerror = 0
-	let email = password = name = phone = aadhaar = ''
+	let emailerror = passworderror = namerror = phonerror = 0;
+	let email = password = name = phone = ''
 	function validateemail(){
 		 email = $("#email").val()
 		var emailRegex = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
@@ -42,7 +42,7 @@ $(document).ready(function(){
 
 	function validatephone(){
 		 phone = $("#phone").val()
-		var phoneRegex = /^\d{10}$/;
+		var phoneRegex = /^\d{10,12}$/;
 		if (phone == '' || !phone.match(phoneRegex)) {
             $('#phoneerror').show()
             phoneerror = 1
@@ -50,17 +50,7 @@ $(document).ready(function(){
             $('#phoneerror').hide()
             phoneerror = 0
         }
-	}
-	function validateaadhaar(){
-		aadhaar = $("#aadhaar").val()
-		var aadhaarRegex = /^[2-9]{1}[0-9]{11}$/;
-		if (aadhaar == '' || !aadhaar.match(aadhaarRegex)) {
-            $('#aadhaarerror').show()
-            aadhaarerror = 1
-        } else {
-            $('#aadhaarerror').hide()
-            aadhaarerror = 0
-        }
+
 	}
 
 	$("#email").keyup(function(){
@@ -79,16 +69,12 @@ $(document).ready(function(){
 		validatephone()
 	})
 
-	$("#aadhaar").keyup(function(){
-		validateaadhaar()
-	})
-
 	$("#signupbutton").click(function(){
 		validateemail()
 		validatepass()
 		validatename()
 		validatephone()
-		if (emailerror == 0 && passworderror == 0 && nameerror == 0 && phonerror == 0 && aadhaarerror == 0){
+		if (emailerror == 0 && passworderror == 0 && nameerror == 0 && phonerror == 0){
 			alert("ready")
 		}else{
 			return false
@@ -111,7 +97,7 @@ $(document).ready(function(){
 					url:"/sendotp", 
 					type: "post", 
 					dataType: 'json',
-					data: {"email":email, "name":name, "phone":phone, "company":company},
+					data: {"email":email, "name":name},
 					beforeSend: function(){
 				        
 				    },
@@ -145,7 +131,7 @@ $(document).ready(function(){
 					    	if (output.status == 'error'){
 					    		alertmessage('error', 'Email ID already registered. Please Login')
 					    	}else{
-					    		alertmessage('success', 'Registered successfully. Please signin to continue')
+					    		alertmessage('success', 'Registered successfully. You can access once the admin approved your request. You will be notified once admin approved')
 					    	}
 					    },
 					    error:function(error){
@@ -168,19 +154,16 @@ $(document).ready(function(){
 		validatepass()
 		validatename()
 		validatephone()
-		validateaadhaar()
 		
-		if (emailerror == 0 && passworderror == 0 && nameerror == 0 && phonerror == 0 && aadhaarerror == 0){
+		if (emailerror == 0 && passworderror == 0 && nameerror == 0 && phonerror == 0){
 
 			if ($("#otp").val() == ''){
-				
-			var gender = $("#gender").val()
 
 				$.ajax({
-					url:"employees/sendotp", 
+					url:"/sendotp", 
 					type: "post", 
 					dataType: 'json',
-					data: {name:name, email:email, password:password, phone:phone, aadhaar:aadhaar, gender: gender},
+					data: {"email":email, "name":name},
 					beforeSend: function(){
 				        
 				    },

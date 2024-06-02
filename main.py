@@ -12,6 +12,7 @@ from routes.api import router as api_router
 from db import DetaObj as deta, blockchain, blockChainTransact
 from dotenv import load_dotenv
 import os
+from fastapi import UploadFile
 
 # Load environment variables
 load_dotenv()
@@ -68,14 +69,6 @@ async def favicon():
 
 
 app.include_router(api_router)
-
-@app.get("/files/{key}")
-async def ViewFile(key: str):
-    try:
-        file = deta.files.all_files.get(key)
-        return StreamingResponse(BytesIO(file.read()), media_type="image/jpeg")
-    except Exception as e:
-        raise hcCustomException(detail="File not found", status_code = 404)
 
 
 

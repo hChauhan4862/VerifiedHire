@@ -61,7 +61,14 @@ $(document).ready(function(){
 			    	if (output.status == 'error'){
 			    		alertmessage('error', 'Invalid username or password')
 			    	}else{
-			    		location.href="recruitorindex"
+			    		
+			    		if (output == 0){
+			    			alertmessage('error', 'Invalid username or password')
+			    		}else if(output == 2){
+			    			alertmessage('error', 'You can access the system one our admin approved your request')
+			    		}else{
+			    			location.href="recruitorindex"
+			    		}
 			    	}
 			    },
 			    error:function(){

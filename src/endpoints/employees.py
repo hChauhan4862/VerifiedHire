@@ -152,43 +152,21 @@ async def disable_access_key(email: str, access_key: str, session_data: SessionD
     return hcRes(detail="Access key disabled successfully")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #######################
 
 
-@router.post("/addDocument", dependencies=[Depends(EmployeeCookie)])
+@router.post("/fetchDocumentUsingAPI", dependencies=[Depends(EmployeeCookie)])
 async def addDocument(
     documentType: Annotated[str, Form()],
     district: Annotated[str, Form()] = None,
     passing_year: Annotated[str, Form()] = None,
     panno: Annotated[str, Form()] = None,
-    upload: Annotated[bytes, File()] = None,
     roll_number: Annotated[str, Form()] = None,
     session_data: SessionData = Depends(verifier),
     ):
 
     if documentType == "10th" or documentType == "12th":
-        if district is None or passing_year is None or upload is None:
+        if district is None or passing_year is None:
             raise hcCustomException(detail="Invalid data")
         
         if documentType == "10th":
@@ -202,15 +180,19 @@ async def addDocument(
         return hcRes(detail="Document added successfully", data=data["data"])
     
     if documentType == "pan":
-        if panno is None or upload is None:
+        if panno is None:
             raise hcCustomException(detail="Invalid data")
         
         URL = "https://app-moneyview.whizdm.com/loans/services/api/lending/nsdl"
         req = requests.post(URL, data={"pan": panno}, verify=False, headers={"x-mv-app-version":"433"})
         if req.status_code == 200:
-            return hcRes(detail="Status Fatched Success", data=req.json())
+            return hcRes(detail="Status Fatched Success", data={
+                                "DOCUMENT_TYPE" : "PAN_CARD",
+                                "pan": panno,
+                                "name": req.json()
+            })
         
-        raise hcCustomException(detail="Invalid PAN number")
+        raise hcCustomException(detail="Pan Number Details Could Not Found")
 
 
-    return hcRes(detail="Document added successfully", data="File uploaded successfully")
+    return hcCustomException(detail="Invalid data")
