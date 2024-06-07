@@ -117,11 +117,11 @@
       if ($('#emailerror').is(":hidden") && $('#passworderror').is(":hidden")) {
 
         $.ajax({
-          url: '/api/employees/signin',
+          url: '/api/employees/login',
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify({
-            email: $('#email').val(),
+            username: $('#email').val(),
             password: $('#password').val(),
           }),
           success: function (output) {
@@ -129,9 +129,10 @@
               $('#message').html("Login Successfull")
               $('#message').removeClass('text-danger')
               $('#message').addClass('text-success')
+
               setTimeout(function () {
                 window.location.href = '/employee/home'
-              }, 2000)
+              }, 1000)
             }
           },
           error: function (output) {

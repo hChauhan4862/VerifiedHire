@@ -1,0 +1,45 @@
+
+    
+<script src="{{ url_for('static', path='dist/libs/apexcharts/dist/apexcharts.min.js') }}" defer></script>
+<script src="{{ url_for('static', path='dist/libs/jsvectormap/dist/js/jsvectormap.min.js') }}" defer></script>
+<script src="{{ url_for('static', path='dist/libs/jsvectormap/dist/maps/world.js') }}" defer></script>
+<script src="{{ url_for('static', path='dist/libs/jsvectormap/dist/maps/world-merc.js') }}" defer></script>
+<script src="{{ url_for('static', path='jsvalidations/jquery.js') }}"></script>
+<script src="{{ url_for('static', path='dist/js/tabler.min.js') }}" defer></script>
+<script src="{{ url_for('static', path='/dist/js/demo.min.js') }}" defer></script>
+  </body>
+</html>
+
+<script>
+  var userdata = null;
+  $( document ).ready(function() {
+    $.ajax({
+      url: '/api/employees/whoami',
+      type: 'GET',
+      success: function (output) {
+        userdata = output.data;
+        document.getElementById('user_info_name').innerHTML = userdata[0][0];
+        document.getElementById('user_info_mail').innerHTML = userdata[0][1];
+      },
+      error: function (xhr, status, error) {
+        window.location.href = '/employee/signin';
+      }
+    });
+
+  });
+
+  function logout() {
+    $.ajax({
+      url: '/api/employees/logout',
+      type: 'POST',
+      success: function (output) {
+        window.location.href = '/employee/signin';
+      },
+      error: function (xhr, status, error) {
+        window.location.href = '/employee/signin';
+      }
+    });
+
+    
+  }
+</script>

@@ -59,8 +59,8 @@ async def send_otp( r : SendOTP):
         noisy_otp_mail += chr(random.randint(65, 90))
 
     return hcRes(detail="OTP sent successfully", data={
-        "sms": noisy_otp_sms,
-        "mail": noisy_otp_mail
+        "sms": otp_sms,
+        "mail": otp_mail
     })
 
 

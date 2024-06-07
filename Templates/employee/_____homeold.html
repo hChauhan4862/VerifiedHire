@@ -1,0 +1,674 @@
+{% include 'employee/header.html' %}
+<div class="page-wrapper">
+  <!-- Page header -->
+  <div class="page-header d-print-none">
+    <div class="container-xl">
+      <div class="row g-2 align-items-center">
+        <div class="col">
+          <!-- Page pre-title -->
+          <div class="page-pretitle">
+            Overview
+          </div>
+          <h2 class="page-title">
+            Employee > Home
+          </h2>
+        </div>
+        <!-- Page title actions -->
+        <div class="col-auto ms-auto d-print-none">
+          <div class="btn-list">
+            <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report"
+              aria-label="Create new report">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 5l0 14" />
+                <path d="M5 12l14 0" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page body -->
+  <div class="page-body">
+    <div class="container-xl">
+      <div class="row row-deck row-cards">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs nav-fill" data-bs-toggle="tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a href="#tabs-home-7" class="nav-link active" data-bs-toggle="tab" aria-selected="true" role="tab">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24"
+                      stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+                      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+                      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>
+                    </svg>
+                    My Profile</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a href="#tabs-docs-7" class="nav-link" data-bs-toggle="tab" aria-selected="true" role="tab">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24"
+                      stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+                      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+                      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>
+                    </svg>
+                    Documents</a>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                  <a href="#tabs-profile-7" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
+                    tabindex="-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24"
+                      stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+                      <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                    </svg>
+                    Request Endorsement</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a href="#tabs-history-7" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
+                    tabindex="-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24"
+                      stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+                      <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                    </svg>
+                    Endorsement History</a>
+                </li>
+
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane active show" id="tabs-home-7" role="tabpanel">
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">My Profile</h3>
+                    </div>
+                    <div class="card-body border-bottom py-3">
+                      <div class="row row-cards">
+
+                        <div class="col-md-12">
+                          <div class="row">
+                            <div class="mb-3">
+                              <div class="row">
+                                <div class="col-auto">
+
+                                  <label for="imageInput" class="">
+                                    <span class="avatar avatar-md avatarPreview"
+                                      style="background-image: url(//static/avatars/002m.jpg)"></span>
+                                  </label>
+                                  <input type="file" id="imageInput" accept=".png, .jpg, .jpeg" style="display: none;">
+
+                                </div>
+                                <div class="col">
+                                  <div class="mb-3">
+                                    <label class="form-label">Name</label>
+                                    <input class="form-control" id="username" placeholder="Name" readonly>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" placeholder="Name" id="firstname">
+                                <span id="nameerror" class="hide text-danger">* Name should not be empty and cannot
+                                  contain numbers</span>
+                              </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" placeholder="Last Name" id="lastname">
+                              </div>
+                            </div>
+
+                            <div class="col-sm-4 col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">Email address</label>
+                                <input type="email" readonly class="form-control" placeholder="Email" id="email">
+                                <span id="emailerror" class="hide text-danger">* Enter valid Email ID</span>
+                              </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">Phone</label>
+                                <input type="number" class="form-control" placeholder="Phone" id="phone">
+                                <span id="phoneerror" class="hide text-danger">* Phone number cannot be les than 10
+                                  and should not exceed 12</span>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="mb-3">
+                                <label class="form-label">Address</label>
+                                <textarea class="form-control" placeholder="Home Address" id="address"></textarea>
+                                <span id="addresserror" class="hide text-danger">* Enter valid address</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row row-cards">
+                            <u>
+                              <h3 class="card-title mt-3">Career (Profile)</h3>
+                            </u>
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">Organization Name</label>
+                                <input type="text" class="form-control" placeholder="Organization Name" id="orgname">
+
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">Designation</label>
+                                <input type="text" class="form-control" placeholder="Designation" id="designation">
+
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">Responsibility</label>
+                                <input type="text" class="form-control" placeholder="Responsibility"
+                                  id="responsibility">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">Salary(LPA)</label>
+                                <input type="number" class="form-control" placeholder="Salary" id="salary">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">City</label>
+                                <input type="text" class="form-control" placeholder="City" id="orgcity">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">Total No. Of Experience (Yrs)</label>
+                                <input type="text" class="form-control" placeholder="Experience" id="expyears">
+
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-12">
+                            <div class="mb-3">
+                              <label class="form-label">Skills</label>
+                              <textarea readonly class="form-control" placeholder="Skills" id="skills"></textarea>
+                              <span id="skillserror" class="hide text-danger">* Enter valid Skills</span>
+                            </div>
+                          </div>
+
+                          <div class="row row-cards">
+                            <u>
+                              <h3 class="card-title mt-3">Academic Profile (Latest)</h3>
+                            </u>
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">College Name</label>
+                                <input type="text" class="form-control" placeholder="College Name" id="collegename">
+                                <span id="collegenameerror" class="hide text-danger">* Enter valid college
+                                  name</span>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">Course</label>
+                                <input type="text" class="form-control" placeholder="Course" id="course">
+                                <span id="courseerror" class="hide text-danger">* Enter valid course</span>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">Score</label>
+                                <input type="number" class="form-control" placeholder="Score" id="score">
+                                <span id="scoreerror" class="hide text-danger">* Enter valid score or grade</span>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">Affilated University</label>
+                                <input type="text" class="form-control" placeholder="Affilated University"
+                                  id="affilateduniversity">
+                                <span id="affilateduniversityerror" class="hide text-danger">* Enter valid
+                                  university name</span>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">Academic Year</label>
+                                <input type="number" class="form-control" placeholder="Academic Year" id="academicyear">
+                                <span id="academicyearerror" class="hide text-danger">* Enter valid academic
+                                  year</span>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="mb-3">
+                                <label class="form-label">City</label>
+                                <input type="text" class="form-control" placeholder="City" id="colcity">
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer text-start">
+                      <button type="button" id="updateemployeebutton" class="btn btn-primary">Update
+                        Profile</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="tabs-profile-7" role="tabpanel">
+                  <h4>Endorsement</h4>
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">Endorsement Request</h3>
+                    </div>
+                    <div class="card-body border-bottom py-3">
+                      <div class="row row-cards">
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label class="form-label">Select Skill</label>
+                            <select type="text" class="form-select" id="endoskill">
+                              <option value="JavaScript">JavaScript</option>
+                              <option value="CSS">CSS</option>
+                              <option value="jQuery">jQuery</option>
+                              <option value="Bootstrap">Bootstrap</option>
+                              <option value="Ruby">Ruby</option>
+                              <option value="Python">Python</option>
+                              <option value="HTML">HTML</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="mb-3">
+                            <label class="form-label">Describe Request</label>
+                            <textarea id="describe" class="form-control" rows="5"
+                              placeholder="I need to update the skill in the system"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer text-start">
+                      <button type="button" id="endorestbutton" class="btn btn-primary">Send Request</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane" id="tabs-docs-7" role="tabpanel">
+
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Your Documents</h3>
+                      </div>
+                      <div class="card-body border-bottom py-3">
+                        <div class="row row-cards">
+                          <div class="col-md-7">
+                            <div class="row">
+                              <div class="mb-3 row">
+                                <label class="col-3 col-form-label required">Resume</label>
+                                <div class="col">
+                                  <input type="file" class="form-control" id="resumeproof"
+                                    accept=".png, .jpg, .jpeg, .pdf"><span></span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="mb-3 row">
+                                <label class="col-3 col-form-label required">Address Proof</label>
+                                <div class="col">
+                                  <input type="file" class="form-control" id="addressproof"
+                                    accept=".png, .jpg, .jpeg, .pdf"><span></span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="mb-3 row">
+                                <label class="col-3 col-form-label required">Resignation Letter</label>
+                                <div class="col">
+                                  <input type="file" class="form-control" id="resignationproof"
+                                    accept=".png, .jpg, .jpeg, .pdf">
+                                  <span></span>
+                                  <small class="form-hint">Ensure that the resignation letter is received from the
+                                    last company</small>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="mb-3 row">
+                                <label class="col-3 col-form-label required">Degree Certificate</label>
+                                <div class="col">
+                                  <input type="file" class="form-control" id="degreeproof"
+                                    accept=".png, .jpg, .jpeg, .pdf">
+                                  <span></span>
+                                  <small class="form-hint">Ensure that the given certificate is the latest degree
+                                    completed by the employee</small>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="mb-3 row">
+                                <label class="col-3 col-form-label required">Medical Certificate</label>
+                                <div class="col">
+                                  <input type="file" class="form-control" id="medicalcertificate"
+                                    accept=".png, .jpg, .jpeg, .pdf"><span></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-5"></div>
+                        </div>
+                      </div>
+                      <div class="card-footer text-center">
+                        <button type="button" id="documentupload" class="btn btn-primary">Upload Document</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane" id="tabs-history-7" role="tabpanel">
+                  <h4>Endorsement History</h4>
+                  <div class="card">
+                    <div class="table-responsive">
+                      <table class="table table-vcenter table-mobile-md card-table">
+                        <thead>
+                          <tr>
+                            <th>Requested Endorse</th>
+                            <th>Score</th>
+                            <th>Status</th>
+                            <th>Has updated</th>
+                            <th>Requested Date</th>
+                          </tr>
+                        </thead>
+                        <tbody id="endordetail">
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<input type="hidden" id="fname">
+
+
+{% include 'employee/footer.html' %}
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    let path = ''
+    $('#imageInput').change(function (event) {
+      var file = event.target.files[0];
+      path = file.name;
+      $("#fname").val(path)
+      if (file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('.avatarPreview').css('background-image', 'url(' + e.target.result + ')');
+        }
+
+        var formData = new FormData();
+        var sendfile = $('#imageInput')[0].files[0];
+        formData.append('image', sendfile);
+
+        $.ajax({
+          type: 'POST',
+          url: '/uploaddp',
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+
+          },
+          error: function (xhr, status, error) {
+
+          }
+        });
+
+        reader.readAsDataURL(file);
+      }
+    });
+
+    $.ajax({
+      url: "/getemployeeData",
+      type: "post",
+      dataType: 'json',
+      data: {},
+      beforeSend: function () {
+
+      },
+      success: function (output) {
+
+        $("#username").val(output.employee_data[0])
+        $("#profname").html(output.employee_data[0])
+        $('#firstname').val(output.basic_info[0])
+        $('#lastname').val(output.basic_info[1])
+        $('#email').val(output.employee_data[1])
+        $('#phone').val(output.employee_data[3])
+        $('#address').val(output.basic_info[4])
+
+        $('#orgname').val(output.working_info[1])
+        $('#designation').val(output.working_info[2])
+        $('#responsibility').val(output.working_info[3])
+        $('#salary').val(output.working_info[4])
+        $('#orgcity').val(output.working_info[5])
+        $('#expyears').val(output.working_info[6])
+
+        $('#collegename').val(output.academic_info[1])
+        $('#course').val(output.academic_info[2])
+        $('#score').val(output.academic_info[3])
+        $('#affilateduniversity').val(output.academic_info[4])
+        $('#colcity').val(output.academic_info[5])
+        $('#academicyear').val(output.academic_info[6])
+
+        var endor = ''
+        for (var i = 0; i <= output.endor_info.length - 1; i++) {
+          if (output.endor_info[i][5] == 'none') {
+            var stat = '<span class="badge bg-yellow text-yellow-fg">Pending</span>'
+          } else {
+            var stat = '<span class="badge bg-red text-red-fg">Rejected</span>'
+          }
+          endor += `<tr><td>` + output.endor_info[i][2] + `</td>
+                    <td>`+ output.endor_info[i][4] + `</td>
+                    <td>`+ stat + `</td>
+                    <td>`+ output.endor_info[i][6] + `</td>
+                    <td>`+ output.endor_info[i][7] + `</td>`;
+        }
+
+        $("#endordetail").html(endor)
+
+
+        var fileInputs = {
+          'resumeproof': output.proof_info[1],
+          'addressproof': output.proof_info[2],
+          'resignationproof': output.proof_info[3],
+          'degreeproof': output.proof_info[4],
+          'medicalcertificate': output.proof_info[5]
+        };
+
+
+        $.each(fileInputs, function (id, path) {
+          $('#' + id).next().text(path);
+          url = 'http://localhost:5000/static/userproofs/' + path
+          var previewLink = $('<a>').attr({
+            'href': url,
+            'target': '_blank'
+          }).text('Preview');
+          $('#' + id).parent().append(previewLink);
+        });
+
+        var url = 'http://localhost:5000/static/profileimages/' + output.basic_info[5]
+        $('.avatarPreview').css('background-image', 'url(' + url + ')');
+
+
+      },
+      error: function (error) {
+
+      }
+    });
+
+
+    $("#updateemployeebutton").click(function () {
+
+      $(".invalid-feedback").text("");
+      $("#firstname, #lastname, #email, #phone, #employeeaddress, #organizationname, #designation, #responsibility, #salary, #officecity, #totalexperience, #collegename, #course, #score, #affilateduniversity, #colcity, #academicyear, #fname").removeClass("is-invalid");
+      var isValid = true;
+      var mandatoryFields = ["firstname", "lastname", "email", "phone", "employeeaddress", "organizationname", "designation", "responsibility", "salary", "officecity", "totalexperience", "collegename", "course", "score", "affilateduniversity", "colcity", "academicyear"];
+      mandatoryFields.forEach(function (fieldId) {
+        var fieldValue = $('#' + fieldId).val();
+        if (fieldValue == "") {
+          $('#' + fieldId).addClass("is-invalid");
+          $('#' + fieldId).siblings(".invalid-feedback").text("This field is required");
+          isValid = false;
+        }
+      });
+
+      if (!isValid) {
+        return false;
+      }
+
+      var formData = {
+        firstName: $('#firstname').val(),
+        lastName: $('#lastname').val(),
+        email: $('#email').val(),
+        phone: $('#phone').val(),
+        employeeaddress: $('#address').val(),
+        organizationname: $('#orgname').val(),
+        designation: $('#designation').val(),
+        responsibility: $('#responsibility').val(),
+        salary: $('#salary').val(),
+        officecity: $('#orgcity').val(),
+        totalexperience: $('#expyears').val(),
+        collegename: $('#collegename').val(),
+        course: $('#course').val(),
+        score: $('#score').val(),
+        university: $('#affilateduniversity').val(),
+        collegecity: $('#colcity').val(),
+        year: $('#academicyear').val(),
+        path: $('#fname').val()
+      };
+      $.ajax({
+        type: 'POST',
+        url: '/addEmployee',
+        contentType: 'application/json',
+        data: JSON.stringify(formData),
+        success: function (response) {
+          alert(response.message);
+        },
+        error: function (xhr, status, error) {
+          console.error(xhr.responseText);
+        }
+      });
+    });
+
+
+    $("#endorestbutton").click(function () {
+      var endoskill = $('#endoskill').val()
+      var describe = $('#describe').val()
+      if (endoskill != '' && describe != '') {
+        $('#describe').addClass('is-valid');
+        $.ajax({
+          type: 'POST',
+          url: 'requestEndorest',
+          dataType: 'JSON',
+          data: { "endoskill": endoskill, "describe": describe },
+          success: function (response) {
+            alert("Endorsement requested successfully")
+            location.href = 'employeeindex'
+          },
+          error: function (xhr, status, error) {
+            console.error(xhr.responseText);
+          }
+        });
+      } else {
+        $('#describe').addClass('is-invalid').focus();
+      }
+    })
+
+    // $("#logout").click(function(){
+    //     $.ajax({
+    //             type: 'POST',
+    //             url: 'logout',
+    //             dataType: 'JSON',
+    //             data: {},
+    //             success: function(response) {
+    //                 location.href = 'main'
+    //             },
+    //             error: function(xhr, status, error) {
+    //                 console.error(xhr.responseText);
+    //             }
+    //         });
+    // })
+
+    $('#documentupload').click(function () {
+
+      if ($('#resumeproof')[0].files.length === 0) {
+        $('#resumeproof').addClass('is-invalid').focus();
+      } else if ($('#addressproof')[0].files.length === 0) {
+        $('#addressproof').addClass('is-invalid').focus();
+      } else if ($('#resignationproof')[0].files.length === 0) {
+        $('#resignationproof').addClass('is-invalid').focus();
+      } else if ($('#medicalcertificate')[0].files.length === 0) {
+        $('#medicalcertificate').addClass('is-invalid').focus();
+      } else if ($('#degreeproof')[0].files.length === 0) {
+        $('#degreeproof').addClass('is-invalid').focus();
+      } else {
+        $('.form-control').removeClass('is-invalid');
+
+        var formData = new FormData();
+        var files = $('#resumeproof, #addressproof, #resignationproof, #degreeproof, #medicalcertificate').map(function () {
+          return $(this)[0].files[0];
+        }).get();
+
+        $.each(files, function (i, file) {
+          formData.append('file[]', file);
+        });
+
+        $.ajax({
+          type: 'POST',
+          url: '/uploadproofs',
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            alert(response.message);
+            location.href = 'employeeindex'
+          },
+          error: function (xhr, status, error) {
+            console.error(xhr.responseText);
+          }
+        });
+
+      }
+
+
+    });
+
+  })
+
+</script>
+
+</body>
+
+</html>
